@@ -1,0 +1,86 @@
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="league"
+            type="compl3x.databind.League.ViewModel.LeagueViewModel" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        app:cardCornerRadius="4dp"
+        app:cardElevation="2dp"
+        android:layout_width="match_parent"
+        android:id="@+id/card_view"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:background="@{league.backgroundColor}"
+        android:layout_height="@dimen/card_height">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{league.title}"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_alignParentTop="true"
+                android:id="@+id/league_title"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:layout_marginTop="@dimen/card_title_margin"
+                android:textAlignment="gravity"
+                android:textSize="@dimen/card_title_size"/>
+
+         <android.support.v7.widget.AppCompatImageView
+             android:layout_width="wrap_content"
+             android:layout_centerHorizontal="true"
+             android:layout_below="@id/league_title"
+             android:id="@+id/center_image"
+             android:layout_height="wrap_content"
+             app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+            
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/leader_title"
+                android:visibility="@{league.showLeaderKey}"
+                android:text="@{league.leaderKey}"
+                android:textSize="@dimen/card_leader_text_size"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:layout_below="@id/center_image"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@{league.descriptor}"
+                android:background="@color/colorDescriptorBackground"
+                android:textSize="@dimen/card_descriptor_text_size"
+                android:layout_below="@id/leader_title"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="@string/card_signup"
+                android:textSize="@dimen/card_signup_text_size"
+                android:textStyle="italic"
+                android:background="@android:color/transparent"
+                android:layout_alignParentEnd="true"
+                android:visibility="@{league.signupAvailable}"
+                android:onClick="@{league.onSignupClicked()}"
+                android:layout_height="wrap_content" />
+
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    </layout>
