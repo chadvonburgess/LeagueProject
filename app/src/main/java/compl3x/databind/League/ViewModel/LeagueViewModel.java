@@ -16,7 +16,6 @@ import compl3x.databind.R;
  * Created by chad on 1/31/2017.
  * honestly only makes sense that this extends base observable otherwise this view is exposing directly the data in the model which isn't that kind of what we are
  * trying to avoid here ?
- *
  */
 
 public class LeagueViewModel extends BaseObservable {
@@ -28,49 +27,53 @@ public class LeagueViewModel extends BaseObservable {
         this.league = league;
         this.context = context;
     }
+
     @Bindable
-    public String getDescriptor(){
+    public String getDescriptor() {
         return league.getDescriptor();
     }
 
-    public void setDescriptor(String descriptor){
+    public void setDescriptor(String descriptor) {
         league.setDescriptor(descriptor);
         notifyPropertyChanged(BR.descriptor);
     }
 
-    public int getBackgroundColor(){
+    public int getBackgroundColor() {
         return ContextCompat.getColor(context, league.getActive() ? R.color.white : R.color.grey);
     }
-    public int getSignupAvailable(){
+
+    public int getSignupAvailable() {
         return league.getSignupAvailable() ? View.VISIBLE : View.GONE;
     }
 
-    public String getLeaderKey(){
+    public String getLeaderKey() {
         return league.getLeaderKey();
     }
-    public int getShowLeaderKey(){
+
+    public int getShowLeaderKey() {
         return !TextUtils.isEmpty(league.getLeaderKey()) ? View.VISIBLE : View.GONE;
     }
+
     @Bindable
-    public String getTitle(){
+    public String getTitle() {
         return league.getTitle();
     }
 
-    public void setTitle(String title){
+    public void setTitle(String title) {
         league.setTitle(title);
         notifyPropertyChanged(BR.title);
     }
 
-    public View.OnClickListener onSignupClicked(){
+    public View.OnClickListener onSignupClicked() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTitle("clicked on signup");
+                setTitle(context.getString(R.string.card_signup_clicktemp));
             }
         };
     }
 
-    public View.OnClickListener onItemClicked(){
+    public View.OnClickListener onItemClicked() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +81,6 @@ public class LeagueViewModel extends BaseObservable {
             }
         };
     }
-
 
 
 }

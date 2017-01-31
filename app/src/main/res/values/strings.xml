@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Databind</string>
     <string name="card_signup">Sign Up</string>
+    <string name="card_signup_clicktemp">Clicked on Card Sign up</string>
 </resources>

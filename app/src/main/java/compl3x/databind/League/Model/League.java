@@ -17,10 +17,10 @@ public class League {
     //noted probably these field should be final
 
     public League(int count) {
-        this.descriptor = descript + String.valueOf(count);
+        this.descriptor = descript.concat(String.valueOf(count));
         this.isActive = true;
         this.signupAvailable = true;
-        this.leaderKey = leaderDescript + String.valueOf(count);
+        this.leaderKey = leaderDescript.concat(String.valueOf(count));
         this.title = defaultLeagueTitle;
     }
 
