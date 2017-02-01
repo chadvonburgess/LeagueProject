@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.concurrent.Callable;
 
 import compl3x.databind.League.Model.League;
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
 import io.reactivex.Single;
 
 /**
@@ -20,6 +22,15 @@ public class LeagueFactory {
             @Override
             public List<League> call() throws Exception {
                 return objectList();
+            }
+        });
+    }
+
+    public static Observable<List<League>> newObservable(){ // this will give an observable but wont give you a stream. need to really inherit from an ObservableSource
+        return Observable.defer(new Callable<ObservableSource<? extends List<League>>>() {
+            @Override
+            public ObservableSource<? extends List<League>> call() throws Exception {
+                return Observable.just(objectList());
             }
         });
     }

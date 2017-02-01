@@ -9,4 +9,5 @@
     <dimen name="card_leader_text_size">16sp</dimen>
     <dimen name="card_descriptor_text_size">14sp</dimen>
     <dimen name="card_signup_text_size">10sp</dimen>
+    <dimen name="landing_maring_top">30dp</dimen>
 </resources>

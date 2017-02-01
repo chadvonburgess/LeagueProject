@@ -63,7 +63,7 @@
                 android:gravity="center"
                 android:text="@{league.descriptor}"
                 android:background="@color/colorDescriptorBackground"
-                android:textSize="@dimen/card_descriptor_text_size"
+                android:textAppearance="@style/medium_text_appearance"
                 android:layout_below="@id/leader_title"/>
 
             <Button

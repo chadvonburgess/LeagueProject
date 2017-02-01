@@ -29,10 +29,12 @@ public class MainActivity extends AppCompatActivity {
         binding.leagueList.setLayoutManager(layoutManager);
         adapter = new LeagueAdapter();
         binding.leagueList.setAdapter(adapter);
+        setSupportActionBar(binding.toolbar);
+
         /*
         this could probably be done better, this is just trying out singles, everyone can use observables they are boring.
          */
-        LeagueFactory.create().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<List<League>>() {
+        LeagueFactory.newObservable().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<List<League>>() {
             @Override
             public void accept(List<League> leagues) throws Exception {
                 adapter.setItems(leagues);
